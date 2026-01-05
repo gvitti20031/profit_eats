@@ -33,7 +33,7 @@ The core of ProfitEats is the **Profit Function ($P$)**. The tool calculates the
 $$P(p, d, t, e, m) = 50.82 \times \frac{p}{d} - \frac{et}{m} $$
 
 ### Sensitivity Analysis (The Gradient)
-To help drivers understand which factors impact their wallet the most, I implemented a **Gradient Vector ($\nabla P$)**. By calculating the partial derivatives with respect to each variable, the tool identifies the "volatility" of a trip's profit.
+To help drivers understand which factors impact their wallet the most, I implemented a **Gradient Vector ($\nabla P$)**. By calculating the partial derivatives with respect to each variable, the tool identifies the volatility of a trip's profit.
 
 $$\nabla P = \left[ \frac{\partial P}{\partial p}, \frac{\partial P}{\partial d}, \frac{\partial P}{\partial t}, \frac{\partial P}{\partial e}, \frac{\partial P}{\partial m} \right]$$
 
