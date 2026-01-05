@@ -1,85 +1,47 @@
-ProfitEats: Independent Contractor Profit Calculator
-Author: Giulio Vitti
+# ProfitEats: Independent Contractor Profit Calculator
+**Author:** Giulio Vitti  
+**Live Demo:** [profiteats.com](https://www.profiteats.com)
 
-Live Demo: profiteats.com
+## 📌 Introduction
+Independent contracting offers the luxury of a flexible schedule, but it often hides systemic inefficiencies. Many gig-economy trips result in earnings below minimum wage—or even negative profit—once taxes, fuel, and vehicle wear are calculated.
 
-📌 Introduction
-In the gig economy, independent contractors often struggle to assess the true profitability of a trip in real-time. Many offers, when factoring in expenses and taxes, result in earnings below minimum wage or even negative profits.
+**ProfitEats** is a quantitative tool built to solve this. It moves beyond simple arithmetic by using **multivariable calculus** to provide contractors with real-time profit estimations and sensitivity analysis.
 
-ProfitEats is a quantitative tool designed to solve this information asymmetry. Built with Python (SymPy, Pandas, Flask) and JavaScript, it allows contractors to calculate estimated hourly profits and perform sensitivity analysis via multivariable calculus to understand how different factors affect their bottom line.
+---
 
-⚙️ Project Overview
-The application takes user inputs and processes them through a mathematical engine to determine net profitability.
+## ⚙️ Project Overview
+The application enables users to input trip variables and receive an immediate assessment of profitability. The logic is handled by a Python backend, using symbolic math and data manipulation libraries to provide a high level of accuracy.
 
-Key Functionality:
+### Key Functionalities:
+* **Geospatial Data Extraction:** Using **Pandas**, the system maps user-inputted Zip Codes to state-level average gas prices stored in a CSV database.
+* **Symbolic Profit Modeling:** Uses **SymPy** to define a profit function that accounts for price, duration, distance, and fuel efficiency.
+* **Validation Layer:** A custom **JavaScript** engine handles client-side error checking to ensure mathematical integrity before the data reaches the Flask server.
 
-Dynamic Gas Pricing: Automatically extracts state-average fuel costs by matching user-inputted zip codes against a CSV dataset using Pandas.
+---
 
-Gradient-Based Sensitivity: Utilizes the SymPy library to compute the gradient vector of the profit function. This shows the user the "volatility" of their profit—how a slight change in gas price or trip duration impacts their hourly take-home pay.
+## 📉 Mathematical Engine
+The core of ProfitEats is the **Profit Function ($P$)**. The tool calculates the estimated post-tax hourly profit as follows:
 
-Full-Stack Integration: A Flask backend bridges the Python logic with a responsive HTML/CSS frontend, while JavaScript ensures data integrity through client-side validation.
+$$P(p, d, t, e, m) = \frac{p - \left( \frac{t}{m} \cdot e \right)}{d} \times 60$$
 
-📉 Mathematical Framework
-The core of the project is a multivariable profit function P. The tool calculates the estimated post-tax hourly profit:
+### Sensitivity Analysis (The Gradient)
+To help drivers understand which factors impact their wallet the most, I implemented a **Gradient Vector ($\nabla P$)**. By calculating the partial derivatives with respect to each variable, the tool identifies the "volatility" of a trip's profit.
 
-P(p,d,t,e,m)= 
-d
-p−( 
-m
-t
-​	
- ⋅e)
-​	
- ×60
-Where:
+$$\nabla P = \left[ \frac{\partial P}{\partial p}, \frac{\partial P}{\partial d}, \frac{\partial P}{\partial t}, \frac{\partial P}{\partial e}, \frac{\partial P}{\partial m} \right]$$
 
-p = Price Offered
+---
 
-d = Trip Duration (minutes)
+## 🛠️ Tech Stack
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Language** | Python 3.x | Logic & Mathematical Modeling |
+| **Math Engine** | SymPy | Symbolic differentiation and gradients |
+| **Data** | Pandas | CSV parsing and Zip Code mapping |
+| **Backend** | Flask | Routing and Template Rendering |
+| **Frontend** | HTML5 / CSS3 | Responsive UI Design |
+| **Client Logic** | JavaScript | Input validation and Error handling |
 
-t = Distance Traveled
+---
 
-e = Gas Expense (extracted via Zip Code)
-
-m = Vehicle Fuel Efficiency (MPG)
-
-To provide deeper insights, the tool computes the gradient vector ∇P:
-
-∇P=⟨ 
-∂p
-∂P
-​	
- , 
-∂d
-∂P
-​	
- , 
-∂t
-∂P
-​	
- , 
-∂e
-∂P
-​	
- , 
-∂m
-∂P
-​	
- ⟩
-This allows the user to see which variables (like distance vs. time) have the highest impact on their specific trip's profitability.
-
-🛠️ Technologies Used
-Python: Core logic and symbolic mathematics.
-
-SymPy: Symbolic computation of partial derivatives.
-
-Pandas: Data manipulation for geographic fuel pricing.
-
-Flask: Web framework for request handling and template rendering.
-
-JavaScript: Real-time error handling and input validation.
-
-HTML/CSS: Frontend layout and responsive UI design.
-
-💡 Conclusion
-This project is a practical application of quantitative reasoning and multivariable calculus translated into a functional software product. It demonstrates the ability to take a real-world economic problem, model it mathematically, and deploy it as a user-friendly tool for better decision-making.
+## 💡 Conclusion
+This project demonstrates the intersection of **quantitative reasoning, data science, and web development.** It showcases my ability to take a handwritten math equation and scale it into a transformative, user-facing system—aligning perfectly with the "builder" mindset required for the OpenAI Residency.
