@@ -2,14 +2,14 @@
 **Author:** Giulio Vitti  
 **Live Demo:** [profiteats.com](https://www.profiteats.com)
 
-## 📌 Introduction
+## Introduction
 Independent contracting offers the luxury of a flexible schedule, but it often hides systemic inefficiencies. Many gig-economy trips result in earnings below minimum wage—or even negative profit—once taxes, fuel, and vehicle wear are calculated.
 
 **ProfitEats** is a quantitative tool built to solve this. It moves beyond simple arithmetic by using **multivariable calculus** to provide contractors with real-time profit estimations and sensitivity analysis.
 
 ---
 
-## ⚙️ Project Overview
+## Project Overview
 The application enables users to input trip variables and receive an immediate assessment of profitability. The logic is handled by a Python backend, using symbolic math and data manipulation libraries to provide a high level of accuracy.
 
 ### Key Functionalities:
@@ -19,7 +19,7 @@ The application enables users to input trip variables and receive an immediate a
 
 ---
 
-## 📉 Mathematical Engine
+## Mathematical Engine
 The core of ProfitEats is the **Profit Function ($P$)**. The tool calculates the estimated post-tax hourly profit as follows:
 
 $$P(p, d, t, e, m) = \frac{p - \left( \frac{t}{m} \cdot e \right)}{d} \times 60$$
@@ -31,7 +31,7 @@ $$\nabla P = \left[ \frac{\partial P}{\partial p}, \frac{\partial P}{\partial d}
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 | Component | Technology | Role |
 | :--- | :--- | :--- |
 | **Language** | Python 3.x | Logic & Mathematical Modeling |
@@ -43,5 +43,5 @@ $$\nabla P = \left[ \frac{\partial P}{\partial p}, \frac{\partial P}{\partial d}
 
 ---
 
-## 💡 Conclusion
+## Conclusion
 This project demonstrates the intersection of **quantitative reasoning, data science, and web development.** It showcases my ability to take a handwritten math equation and scale it into a transformative, user-facing system—aligning perfectly with the "builder" mindset required for the OpenAI Residency.
