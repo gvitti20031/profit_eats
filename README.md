@@ -12,6 +12,14 @@ Independent contracting offers the luxury of a flexible schedule, but it often h
 ## Project Overview
 The application enables users to input trip variables and receive an immediate assessment of profitability. The logic is handled by a Python backend, using symbolic math and data manipulation libraries to provide a high level of accuracy.
 
+### Variables:
+* **Price Offered (p):** Amount the contractor is paid
+* **Trip duration (d):** Minutes required to complete the job
+* **Distance traveled (t):** Mileage covered over trip
+* **Zip code (z):** Zip code of trip
+* **Gas mileage (m):** Vehicle fuel efficiency (miles per gallon)
+* **Gas expense (e):** Fuel cost (dollars per gallon)
+
 ### Key Functionalities:
 * **Geospatial Data Extraction:** Using **Pandas**, the system maps user-inputted Zip Codes to state-level average gas prices stored in a CSV database.
 * **Symbolic Profit Modeling:** Uses **SymPy** to define a profit function that accounts for price, duration, distance, and fuel efficiency.
@@ -34,7 +42,7 @@ $$\nabla P = \left[ \frac{\partial P}{\partial p}, \frac{\partial P}{\partial d}
 ## Tech Stack
 | Component | Technology | Role |
 | :--- | :--- | :--- |
-| **Language** | Python 3.x | Logic & Mathematical Modeling |
+| **Language** | Python 3.13 | Logic & Mathematical Modeling |
 | **Math Engine** | SymPy | Symbolic differentiation and gradients |
 | **Data** | Pandas | CSV parsing and Zip Code mapping |
 | **Backend** | Flask | Routing and Template Rendering |
