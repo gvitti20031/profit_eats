@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Calculator</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Container Styling */
+        form {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00c6ff;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .server-error {
+            color: #ff4d4d;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ff4d4d;
+            border-radius: 5px;
+            background: #331a1a;
+        }
+
+        /* Input Styling */
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1em;
+            color: #bbbbbb;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+            font-size: 1em;
+            display: block;
+            margin: auto;
+        }
+
+        /* Error Message Styling */
+        .error-message {
+            display: none;
+            position: absolute;
+            left: 0;
+            bottom: -20px;
+            font-size: 0.9em;
+            color: #ff4d4d;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #00c6ff;
+            color: #121212;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0094cc;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Profit Calculator</h1>
+
+    {% if error %}
+    <div class="server-error">{{ error }}</div>
+    {% endif %}
+
+    <!-- Refers to the calculate function in main.py -->
+    <form action="/calculate" method="post" onsubmit="return validateForm()">
+        <div class="input-container">
+            <label for="p">Trip Offer: $</label>
+            <input type="text" id="p" name="p" required oninput="validateForm(this)">
+            <span class="error-message" id="error-p">Please enter a number larger than 0</span>
+        </div><br>
+
+        <div class="input-container">
+            <label for="d">Duration (minutes):</label>
+            <input type="text" id="d" name="d" required oninput="validateForm(this)">
+            <span class="error-message" id="error-d">Please enter a number larger than 0</span>
+        </div><br>
+
+        <div class="input-container">
+            <label for="t">Travel Distance (miles):</label>
+            <input type="text" id="t" name="t" required oninput="validateForm(this)">
+            <span class="error-message" id="error-t">Please enter a number larger than 0</span>
+        </div><br>
+
+        <!--Zip code error checking mechanism-->
+        <div class="input-container">
+            <label for="z">Zip Code:</label>
+            <input type="text" id="z" name="z" minlength="5" maxlength="5" pattern="\d{5}" placeholder="" required>
+            <span class="error-message">Please enter a zip code in valid 5 digit format</span>
+        </div>
+
+        <div class="input-container">
+            <label for="m">Gas Mileage (mpg):</label>
+            <input type="text" id="m" name="m" required oninput="validateForm(this)">
+            <span class="error-message" id="error-m">Please enter a number larger than 0</span>
+        </div><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <script src="authentic.js"></script>
+
+</body>
+</html>

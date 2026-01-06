@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Results</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Container Styling */
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00c6ff;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: #00c6ff;
+            color: #121212;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background: #0094cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculation Results</h1>
+        <p><strong>Estimated Hourly Profit:</strong> ${{ profit }} </p>
+        <p><strong>Price Sensitivity:</strong> {{ p_grad_num }}</p>
+        <p><strong>Duration Sensitivity:</strong> {{ d_grad_num }}</p>
+        <p><strong>Travel Sensitivity:</strong> {{ t_grad_num }}</p>
+        <p><strong>Mileage Sensitivity:</strong> {{ m_grad_num }}</p>
+        <p><strong>Gas Price Sensitivity:</strong> {{ e_grad_num }}</p>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
