@@ -21,7 +21,7 @@ The application enables users to input trip variables and receive an immediate a
 * **Gas expense (e):** Fuel cost (dollars per gallon)
 
 ### Key Functionalities:
-* **Geospatial Data Extraction:** Using **Pandas**, the system maps user-inputted Zip Codes to state-level average gas prices stored in a CSV database.
+* **Geospatial Data Extraction:** Using **Pandas**, the system maps user-inputted zip codes to state-level average gas prices stored in a CSV database.
 * **Symbolic Profit Modeling:** Uses **SymPy** to define a profit function that accounts for price, duration, distance, and fuel efficiency.
 * **Validation Layer:** A custom **JavaScript** engine handles client-side error checking to ensure mathematical integrity before the data reaches the Flask server.
 
