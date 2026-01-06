@@ -30,7 +30,7 @@ The application enables users to input trip variables and receive an immediate a
 ## Mathematical Engine
 The core of ProfitEats is the **Profit Function ($P$)**. The tool calculates the estimated post-tax hourly profit as follows:
 
-$$P(p, d, t, e, m) = \frac{50.82}{d} \times [p - \frac{et}{m}] $$
+$$P(p, d, t, e, m) = \frac{50.82}{d} (p - \frac{et}{m}) $$
 
 ### Sensitivity Analysis (The Gradient)
 To help drivers understand which factors impact their wallet the most, I implemented a **Gradient Vector ($\nabla P$)**. By calculating the partial derivatives with respect to each variable, the tool identifies the volatility of a trip's profit.
